@@ -1,0 +1,19 @@
+
+<h1>{{'Products' | uppercase}}</h1>
+<button class="btn btn-primary" (click)="changeRoute()">Create product</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of products">
+      <div class="card">
+        <img [src]="item.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}} </h5>
+          <p class="card-text"> {{item.createdAt | date: 'dd/MM/yyyy'}}
+          </p>
+          <a [routerLink]="['/product/form', item.id]" class="btn btn-primary">Edit</a>
+          <button (click)="deleteProduct(item.id)" class="btn btn-primary">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
